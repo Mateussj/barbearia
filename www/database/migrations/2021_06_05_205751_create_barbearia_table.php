@@ -15,6 +15,7 @@ class CreateBarbeariaTable extends Migration
     {
         Schema::create('barbearia', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_plano_barbearia')->coment('Plano que a barbearia contratou');
             $table->string('nome');
             $table->string('descricao');
             $table->string('localizacao');

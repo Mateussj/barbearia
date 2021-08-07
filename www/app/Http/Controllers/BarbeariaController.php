@@ -32,7 +32,7 @@ class BarbeariaController extends Controller
          *      )
          *     )
          */
-        
+
         $Barbearia = new Barbearia;
         return response(
             json_encode($Barbearia->get()),
@@ -124,7 +124,7 @@ class BarbeariaController extends Controller
          *      tags={"Barbearia"},
          *      summary="Update existing Barbearia",
          *      description="Returns updated Barbearia data",
-         *      
+         *
          *  @OA\Parameter(
          *          name="id",
          *          description="Id",
@@ -155,7 +155,7 @@ class BarbeariaController extends Controller
          *          response=401,
          *          description="Invalid data",
          *       ),
-         *    
+         *
          *     )
          */
 

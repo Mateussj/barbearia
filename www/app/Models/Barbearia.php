@@ -10,9 +10,9 @@ class Barbearia extends Model
     public $timestamps = false;
 
     protected $table = "barbearia";
-     
+
     use HasFactory;
-    
+
     protected $fillable = [
         'nome',
         'descricao',
