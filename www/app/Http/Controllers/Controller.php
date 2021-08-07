@@ -8,7 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
 /**
- * @OA\Info(title="Products API", version="0.1")
+ * @OA\Info(title="Barbearia API", version="0.1")
  */
 
 

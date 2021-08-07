@@ -15,7 +15,7 @@ class BarbeariaController extends Controller
          * @OA\Get(
          *      path="/api/barbearia",
          *      operationId="getbarbeariaList",
-         *      tags={"barbearia"},
+         *      tags={"Barbearia"},
          *      summary="Get list of barbearia",
          *      description="Returns list of barbearia",
          *      @OA\Response(
@@ -33,9 +33,9 @@ class BarbeariaController extends Controller
          *     )
          */
         
-        $product = new Barbearia;
+        $Barbearia = new Barbearia;
         return response(
-            json_encode($product->get()),
+            json_encode($Barbearia->get()),
             200
         );
     }
@@ -46,7 +46,7 @@ class BarbeariaController extends Controller
          * @OA\Post(
          *      path="/api/barbearia",
          *      operationId="addbarbearia",
-         *      tags={"barbearia"},
+         *      tags={"Barbearia"},
          *      summary="Add barbearia",
          *      @OA\RequestBody(
          *       @OA\JsonContent(
@@ -90,12 +90,12 @@ class BarbeariaController extends Controller
         /**
          * @OA\Delete(
          *      path="/api/barbearia/{id}",
-         *      operationId="deleteProduct",
-         *      tags={"Products"},
-         *      summary="Delete product",
+         *      operationId="deleteBarbearia",
+         *      tags={"Barbearia"},
+         *      summary="Delete barbearia",
          *  @OA\Parameter(
          *          name="id",
-         *          description="Product id",
+         *          description="Barbearia id",
          *          required=true,
          *          in="path",
          *          @OA\Schema(
@@ -109,8 +109,8 @@ class BarbeariaController extends Controller
          *     )
          */
 
-        $product = Barbearia::findOrfail($id);
-        $product->delete();
+        $Barbearia = Barbearia::findOrfail($id);
+        $Barbearia->delete();
 
         return response()->json(null, 204);
     }
@@ -120,10 +120,10 @@ class BarbeariaController extends Controller
         /**
          * @OA\Put(
          *      path="/api/barbearia/{id}",
-         *      operationId="putProduct",
-         *      tags={"Products"},
-         *      summary="Update existing product",
-         *      description="Returns updated product data",
+         *      operationId="putBarbearia",
+         *      tags={"Barbearia"},
+         *      summary="Update existing Barbearia",
+         *      description="Returns updated Barbearia data",
          *      
          *  @OA\Parameter(
          *          name="id",
@@ -137,8 +137,10 @@ class BarbeariaController extends Controller
          *     @OA\RequestBody(
          *       @OA\JsonContent(
          *         type="object",
-         *         @OA\Property(property="name", type="string"),
-         *         @OA\Property(property="price", type="string")
+         *         @OA\Property(property="nome", type="string"),
+         *         @OA\Property(property="descricao", type="string"),
+         *         @OA\Property(property="localizacao", type="string"),
+         *         @OA\Property(property="avatar", type="string")
          *        )
          *      ),
          *      @OA\Response(
@@ -173,8 +175,10 @@ class BarbeariaController extends Controller
 
         Barbearia::where('id', $id)->update(
             [
-                'name' => $request['name'],
-                'price' => $request['price']
+                'nome' => $request['nome'],
+                'descricao' => $request['descricao'],
+                'localizacao' => $request['localizacao'],
+                'avatar' => $request['avatar']
             ]
         );
         return response(Barbearia::where('id', $id)->get(), 200);

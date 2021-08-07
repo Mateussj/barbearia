@@ -1,14 +1,14 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Products API",
+        "title": "Barbearia API",
         "version": "0.1"
     },
     "paths": {
         "/api/barbearia": {
             "get": {
                 "tags": [
-                    "barbearia"
+                    "Barbearia"
                 ],
                 "summary": "Get list of barbearia",
                 "description": "Returns list of barbearia",
@@ -27,7 +27,7 @@
             },
             "post": {
                 "tags": [
-                    "barbearia"
+                    "Barbearia"
                 ],
                 "summary": "Add barbearia",
                 "operationId": "addbarbearia",
@@ -67,11 +67,11 @@
         "/api/barbearia/{id}": {
             "put": {
                 "tags": [
-                    "Products"
+                    "Barbearia"
                 ],
-                "summary": "Update existing product",
-                "description": "Returns updated product data",
-                "operationId": "putProduct",
+                "summary": "Update existing Barbearia",
+                "description": "Returns updated Barbearia data",
+                "operationId": "putBarbearia",
                 "parameters": [
                     {
                         "name": "id",
@@ -88,10 +88,16 @@
                         "application/json": {
                             "schema": {
                                 "properties": {
-                                    "name": {
+                                    "nome": {
                                         "type": "string"
                                     },
-                                    "price": {
+                                    "descricao": {
+                                        "type": "string"
+                                    },
+                                    "localizacao": {
+                                        "type": "string"
+                                    },
+                                    "avatar": {
                                         "type": "string"
                                     }
                                 },
@@ -114,15 +120,15 @@
             },
             "delete": {
                 "tags": [
-                    "Products"
+                    "Barbearia"
                 ],
-                "summary": "Delete product",
-                "operationId": "deleteProduct",
+                "summary": "Delete barbearia",
+                "operationId": "deleteBarbearia",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Product id",
+                        "description": "Barbearia id",
                         "required": true,
                         "schema": {
                             "type": "integer"
