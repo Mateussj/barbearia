@@ -15,6 +15,9 @@ class CreatePlanosTable extends Migration
     {
         Schema::create('planos', function (Blueprint $table) {
             $table->id();
+            $table->decimal('valor')->coment('Valor do plano');
+            $table->string('descricao')->coment('Descricação do plano');
+            $table->integer('periodo')->coment('Quantidade de dias que o plano irá durar');
             $table->timestamps();
         });
     }

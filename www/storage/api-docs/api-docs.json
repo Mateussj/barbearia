@@ -141,6 +141,139 @@
                     }
                 }
             }
+        },
+        "/api/planos": {
+            "get": {
+                "tags": [
+                    "Planos"
+                ],
+                "summary": "Get list of Planos",
+                "description": "Returns list of Planos",
+                "operationId": "getPlanosList",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/Planos": {
+            "post": {
+                "tags": [
+                    "Planos"
+                ],
+                "summary": "Add Planos",
+                "operationId": "addPlanos",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "periodo": {
+                                        "type": "integer"
+                                    },
+                                    "descricao": {
+                                        "type": "string"
+                                    },
+                                    "valor": {
+                                        "type": "decimal"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Invalid data"
+                    }
+                }
+            }
+        },
+        "/api/Planos/{id}": {
+            "put": {
+                "tags": [
+                    "Planos"
+                ],
+                "summary": "Update existing Planos",
+                "description": "Returns updated Planos data",
+                "operationId": "putPlanos",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "periodo": {
+                                        "type": "integer"
+                                    },
+                                    "descricao": {
+                                        "type": "string"
+                                    },
+                                    "valor": {
+                                        "type": "decimal"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid ID"
+                    },
+                    "401": {
+                        "description": "Invalid data"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Planos"
+                ],
+                "summary": "Delete Planos",
+                "operationId": "deletePlanos",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Planos id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
         }
     },
     "security": [
