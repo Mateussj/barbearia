@@ -79,7 +79,8 @@ class BarbeariaController extends Controller
                 'nome' => $request['nome'],
                 'descricao' => $request['descricao'],
                 'localizacao' => $request['localizacao'],
-                'avatar' => $request['avatar']
+                'avatar' => $request['avatar'],
+                'id_plano_barbearia' => PlanoBarbeariaController::add($request['id_plano_barbearia'])
             ])),
             200
         );
@@ -178,7 +179,8 @@ class BarbeariaController extends Controller
                 'nome' => $request['nome'],
                 'descricao' => $request['descricao'],
                 'localizacao' => $request['localizacao'],
-                'avatar' => $request['avatar']
+                'avatar' => $request['avatar'],
+                'id_plano_barbearia' => PlanoBarbeariaController::update($request['id_plano_barbearia'], )
             ]
         );
         return response(Barbearia::where('id', $id)->get(), 200);

@@ -51,7 +51,7 @@ class PlanoController extends Controller
          *         type="object",
          *         @OA\Property(property="periodo", type="integer"),
          *         @OA\Property(property="descricao", type="string"),
-         *         @OA\Property(property="valor", type="float")
+         *         @OA\Property(property="valor", type="string", format="float")
          *        )
          *      ),
          *      @OA\Response(
@@ -59,7 +59,7 @@ class PlanoController extends Controller
          *          description="Successful operation",
          *       ),
          *      @OA\Response(
-         *          response=401,
+         *          response=202,
          *          description="Invalid data",
          *      ),
          *     )
@@ -67,11 +67,12 @@ class PlanoController extends Controller
 
         $request = json_decode($request->getContent(), true);
 
-        /*
-        if ($this->validate($request)) {
-            return response('Invalid data', 401);
-        }*/
 
+        if ($this->validarDados($request)) {
+            return response('Invalid data', 202);
+        }
+
+        //dd($request);
         return response(
             json_encode(Plano::create([
                 'descricao' => $request['descricao'],
@@ -136,11 +137,11 @@ class PlanoController extends Controller
          *         type="object",
          *          @OA\Property(property="periodo", type="integer"),
          *         @OA\Property(property="descricao", type="string"),
-         *         @OA\Property(property="valor", type="decimal")
+         *         @OA\Property(property="valor", type="string", format="decimal")
          *        )
          *      ),
          *      @OA\Response(
-         *          response=204,
+         *          response=200,
          *          description="Successful operation",
          *       ),
          *      @OA\Response(
@@ -148,7 +149,7 @@ class PlanoController extends Controller
          *          description="Invalid ID",
          *       ),
          *      @OA\Response(
-         *          response=401,
+         *          response=202,
          *          description="Invalid data",
          *       ),
          *
@@ -164,12 +165,12 @@ class PlanoController extends Controller
             );
         }
 
-        /*
-        if ($this->validate($request)) {
 
-            return response('Invalid data', 401);
+        if ($this->validarDados($request)) {
+
+            return response('Invalid data', 202);
         }
-        */
+
 
         Plano::where('id', $id)->update(
             [
@@ -181,14 +182,16 @@ class PlanoController extends Controller
         return response(Plano::where('id', $id)->get(), 200);
     }
 
-    /*
-    public function validate($request)
+
+    public function validarDados($request)
     {
         if (
-            !isset($request['descricao']) or $request['descricao'] == ''
-            and !isset($request['valor']) or $request['valor'] == ''
+            (!isset($request['descricao']) or $request['descricao'] == '')
+            or (!isset($request['valor']) or $request['valor'] <= 0)
+            or (!isset($request['periodo']) or $request['periodo'] <= 0)
         ) {
             return true;
         }
-    */
+    }
+
 }

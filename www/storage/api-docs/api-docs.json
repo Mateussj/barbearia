@@ -161,9 +161,7 @@
                         "description": "Forbidden"
                     }
                 }
-            }
-        },
-        "/api/Planos": {
+            },
             "post": {
                 "tags": [
                     "Planos"
@@ -182,7 +180,8 @@
                                         "type": "string"
                                     },
                                     "valor": {
-                                        "type": "decimal"
+                                        "type": "string",
+                                        "format": "float"
                                     }
                                 },
                                 "type": "object"
@@ -194,13 +193,13 @@
                     "200": {
                         "description": "Successful operation"
                     },
-                    "401": {
+                    "202": {
                         "description": "Invalid data"
                     }
                 }
             }
         },
-        "/api/Planos/{id}": {
+        "/api/planos/{id}": {
             "put": {
                 "tags": [
                     "Planos"
@@ -231,7 +230,8 @@
                                         "type": "string"
                                     },
                                     "valor": {
-                                        "type": "decimal"
+                                        "type": "string",
+                                        "format": "decimal"
                                     }
                                 },
                                 "type": "object"
@@ -240,13 +240,13 @@
                     }
                 },
                 "responses": {
-                    "204": {
+                    "200": {
                         "description": "Successful operation"
                     },
                     "400": {
                         "description": "Invalid ID"
                     },
-                    "401": {
+                    "202": {
                         "description": "Invalid data"
                     }
                 }

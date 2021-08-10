@@ -18,6 +18,8 @@ class Barbearia extends Model
         'descricao',
         'localizacao',
         'avatar',
+        'id_plano_barbearia'
+
     ];
 
 }

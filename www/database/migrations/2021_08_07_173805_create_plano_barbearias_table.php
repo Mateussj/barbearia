@@ -15,6 +15,9 @@ class CreatePlanoBarbeariasTable extends Migration
     {
         Schema::create('plano_barbearias', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_plano')->coment('Id do plano da barbearia');
+            $table->dateTime('data_contratacao')->coment('Data da contratação');
+            $table->dateTime('data_renovacao')->coment('Data da renovação do plano');
             $table->timestamps();
         });
     }
