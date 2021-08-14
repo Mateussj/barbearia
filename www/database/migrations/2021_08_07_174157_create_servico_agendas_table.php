@@ -13,8 +13,9 @@ class CreateServicoAgendasTable extends Migration
      */
     public function up()
     {
-        Schema::create('servico_agendas', function (Blueprint $table) {
+        Schema::create('servico_agenda', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_servico');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateServicoAgendasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('servico_agendas');
+        Schema::dropIfExists('servico_agenda');
     }
 }

@@ -13,8 +13,10 @@ class CreateAgendasTable extends Migration
      */
     public function up()
     {
-        Schema::create('agendas', function (Blueprint $table) {
+        Schema::create('agenda', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_barberia');
+            $table->bigInteger('id_barbeiro');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateAgendasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('agendas');
+        Schema::dropIfExists('agenda');
     }
 }

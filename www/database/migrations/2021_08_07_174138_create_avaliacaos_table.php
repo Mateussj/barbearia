@@ -13,8 +13,12 @@ class CreateAvaliacaosTable extends Migration
      */
     public function up()
     {
-        Schema::create('avaliacaos', function (Blueprint $table) {
+        Schema::create('avaliacao', function (Blueprint $table) {
             $table->id();
+            $table->integer('nota_barbeiro');
+            $table->integer('nota_ambiente');
+            $table->integer('nota_servico');
+            $table->string('comentario');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateAvaliacaosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('avaliacaos');
+        Schema::dropIfExists('avaliacao');
     }
 }

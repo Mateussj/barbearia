@@ -13,8 +13,13 @@ class CreateEventosAgendasTable extends Migration
      */
     public function up()
     {
-        Schema::create('eventos_agendas', function (Blueprint $table) {
+        Schema::create('eventos_agenda', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_agenda');
+            $table->bigInteger('id_cliente');
+            $table->bigInteger('id_servico_agenda');
+            $table->bigInteger('id_avaliacao');
+            $table->dateTime('data');
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ class CreateEventosAgendasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('eventos_agendas');
+        Schema::dropIfExists('eventos_agenda');
     }
 }

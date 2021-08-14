@@ -13,7 +13,7 @@ class CreatePlanoBarbeariasTable extends Migration
      */
     public function up()
     {
-        Schema::create('plano_barbearias', function (Blueprint $table) {
+        Schema::create('plano_barbearia', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('id_plano')->coment('Id do plano da barbearia');
             $table->dateTime('data_contratacao')->coment('Data da contratação');
@@ -29,6 +29,6 @@ class CreatePlanoBarbeariasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plano_barbearias');
+        Schema::dropIfExists('plano_barbearia');
     }
 }

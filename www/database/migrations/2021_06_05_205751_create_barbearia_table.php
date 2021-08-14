@@ -18,6 +18,7 @@ class CreateBarbeariaTable extends Migration
             $table->bigInteger('id_plano_barbearia')->coment('Plano que a barbearia contratou');
             $table->string('nome');
             $table->string('descricao');
+            $table->string('cnpj');
             $table->string('localizacao');
             $table->string('avatar');
             $table->timestamps();

@@ -13,12 +13,14 @@ class CreateBarbersTable extends Migration
      */
     public function up()
     {
-        Schema::create('barbers', function (Blueprint $table) {
+        Schema::create('barbeiro', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_barberia_barbeiro');
+            $table->bigInteger('id_usuario');
+            $table->integer('tipo');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -26,6 +28,6 @@ class CreateBarbersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('barbers');
+        Schema::dropIfExists('barbeiro');
     }
 }

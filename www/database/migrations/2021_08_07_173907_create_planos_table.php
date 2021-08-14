@@ -13,7 +13,7 @@ class CreatePlanosTable extends Migration
      */
     public function up()
     {
-        Schema::create('planos', function (Blueprint $table) {
+        Schema::create('plano', function (Blueprint $table) {
             $table->id();
             $table->decimal('valor')->coment('Valor do plano');
             $table->string('descricao')->coment('Descricação do plano');
@@ -29,6 +29,6 @@ class CreatePlanosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('planos');
+        Schema::dropIfExists('plano');
     }
 }

@@ -7,5 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Servico extends Model
 {
+    protected $table = "servico";
+
     use HasFactory;
+
+    protected $fillable = [
+        'id_barbeiro',
+        'nome',
+        'descricao',
+        'valor',
+        'tempo'
+    ];
 }

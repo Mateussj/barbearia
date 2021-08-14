@@ -9,7 +9,7 @@ class Plano_barbearia extends Model
 {
     use HasFactory;
 
-    protected $table = "plano_barbearias";
+    protected $table = "plano_barbearia";
 
     protected $fillable = [
         'id_plano',

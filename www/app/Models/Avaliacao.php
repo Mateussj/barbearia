@@ -7,5 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Avaliacao extends Model
 {
+    protected $table = "avaliacao";
+
     use HasFactory;
+
+    protected $fillable = [
+        'nota_barbeiro',
+        'nota_ambiente',
+        'nota_servico',
+        'comentario'
+    ];
 }

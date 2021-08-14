@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Barbearia extends Model
 {
-    public $timestamps = false;
-
     protected $table = "barbearia";
 
     use HasFactory;
@@ -18,8 +16,9 @@ class Barbearia extends Model
         'descricao',
         'localizacao',
         'avatar',
-        'id_plano_barbearia'
-
+        'id_plano_barbearia',
+        'telefone',
+        'cnpj'
     ];
 
 }
