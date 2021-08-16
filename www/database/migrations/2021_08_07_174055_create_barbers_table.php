@@ -13,9 +13,8 @@ class CreateBarbersTable extends Migration
      */
     public function up()
     {
-        Schema::create('barbeiro', function (Blueprint $table) {
+        Schema::create('tipo_Usuario', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_barberia_barbeiro');
             $table->bigInteger('id_usuario');
             $table->integer('tipo');
             $table->timestamps();

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Barbearia_barber;
-
+use App\models\User;
 use Illuminate\Http\Request;
 
-class BarbeariaBarberController extends Controller
+class userController extends Controller
 {
     public function add(Request $request)
     {
@@ -44,14 +43,18 @@ class BarbeariaBarberController extends Controller
 
         //dd($request);
         return response(
-            json_encode(Barbearia_barber::create([
-                'tipo' => $request['tipo'],
-                'id_barbearia' => $request['id_barbearia'],
-                'id_tipo_usuario' => $request['id_tipo_usuario']
+            json_encode(User::create([
+                'nome' => $request['nome'],
+                'email' => $request['email'],
+                'password' => $request['password'],
+                'provider' => $request['provider'],
+                'provider_id' => $request['provider_id'],
+                'avatar' => $request['avatar'],
             ])),
             200
         );
     }
+
     public function delete($id)
     {
         /**
@@ -76,11 +79,12 @@ class BarbeariaBarberController extends Controller
          *     )
          */
 
-        $Plano = Barbearia_barber::findOrfail($id);
+        $Plano = User::findOrfail($id);
         $Plano->delete();
 
         return response()->json(null, 204);
     }
+
     public function update(Request $request, $id)
     {
         /**
@@ -140,22 +144,29 @@ class BarbeariaBarberController extends Controller
         }
 
 
-        Barbearia_barber::where('id', $id)->update(
+        User::where('id', $id)->update(
             [
-                'tipo' => $request['tipo'],
-                'id_barbearia' => $request['id_barbearia'],
-                'id_tipo_usuario' => $request['id_tipo_usuario']
+                'nome' => $request['nome'],
+                'email' => $request['email'],
+                'password' => $request['password'],
+                'provider' => $request['provider'],
+                'provider_id' => $request['provider_id'],
+                'avatar' => $request['avatar'],
             ]
         );
-        return response(Barbearia_barber::where('id', $id)->get(), 200);
+        return response(user::where('id', $id)->get(), 200);
     }
+
 
     public function validarDados($request)
     {
         if (
-            (!isset($request['id_barbearia']) or $request['id_barbearia'] == '')
-            or (!isset($request['id_tipo_usuario']) or $request['id_tipo_usuario'] == '')
-            or (!isset($request['tipo']) or $request['tipo'] < 0 and $request['tipo'] > 3)
+            (!isset($request['nome']) or $request['nome'] == '')
+            or (!isset($request['email']) or $request['email'] == '')
+            or (!isset($request['password']) or $request['password'] == '')
+            or (!isset($request['provider']) or $request['provider'] == '')
+            or (!isset($request['provider_id']) or $request['provider_id'] == '')
+            or (!isset($request['avatar']) or $request['avatar'] == '')
         ) {
             return true;
         }

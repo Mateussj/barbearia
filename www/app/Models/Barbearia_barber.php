@@ -13,7 +13,7 @@ class Barbearia_barber extends Model
 
     protected $fillable = [
         'id_barbearia',
-        'id_barbeiro',
+        'id_tipo_usuario',
         'tipo'
     ];
 }
