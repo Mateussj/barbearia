@@ -16,7 +16,7 @@ class CreateAgendasTable extends Migration
         Schema::create('agenda', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('id_barberia');
-            $table->bigInteger('id_barbeiro');
+            $table->bigInteger('id_perfil');
             $table->timestamps();
         });
     }

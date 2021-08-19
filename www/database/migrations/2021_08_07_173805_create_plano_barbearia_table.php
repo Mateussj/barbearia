@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBarbeariaBarbersTable extends Migration
+class CreatePlanoBarbeariaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateBarbeariaBarbersTable extends Migration
      */
     public function up()
     {
-        Schema::create('barbearia_barbers', function (Blueprint $table) {
+        Schema::create('plano_barbearia', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_plano')->coment('Id do plano da barbearia');
+            $table->dateTime('data_contratacao')->coment('Data da contratação');
+            $table->dateTime('data_renovacao')->coment('Data da renovação do plano');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateBarbeariaBarbersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('barbearia_barbers');
+        Schema::dropIfExists('plano_barbearia');
     }
 }

@@ -11,6 +11,11 @@ class CreateBarbeariaBarbeiroTable extends Migration
      *
      * @return void
      */
+
+     /*
+        Tabela auxilar que liga o Barbeiro a Barbearia.
+     */
+    
     public function up()
     {
         Schema::create('barbearia_barbeiro', function (Blueprint $table) {

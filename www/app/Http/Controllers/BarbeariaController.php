@@ -180,7 +180,7 @@ class BarbeariaController extends Controller
                 'descricao' => $request['descricao'],
                 'localizacao' => $request['localizacao'],
                 'avatar' => $request['avatar'],
-                'id_plano_barbearia' => PlanoBarbeariaController::update($request['id_plano_barbearia'],)
+                'id_plano_barbearia' => PlanoBarbeariaController::update($request['id_plano_barbearia'],$id)
             ]
         );
         return response(Barbearia::where('id', $id)->get(), 200);
