@@ -14,8 +14,6 @@ class Eventos_agenda extends Model
     protected $fillable = [
         'id_agenda',
         'id_cliente',
-        'id_servico_agenda',
-        'data',
-        'id_avaliacao'
+        'data'
     ];
 }

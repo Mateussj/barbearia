@@ -12,6 +12,7 @@ class Servico_agenda extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_servico'
+        'id_servico',
+        'id_evento_agenda'
     ];
 }

@@ -20,7 +20,7 @@ class AvaliacaoController extends Controller
     public function add(Request $request)
     {
         $request = json_decode($request->getContent(), true);
-        
+
         if ($this->validarDados($request)) {
             return response('Invalid data', 202);
         }
@@ -36,6 +36,7 @@ class AvaliacaoController extends Controller
             (!isset($request['nota_barbeiro']) or $request['nota_barbeiro'] < 0)
             or (!isset($request['nota_ambiente']) or $request['nota_ambiente'] < 0)
             or (!isset($request['nota_servico']) or $request['nota_servico'] < 0)
+            or (!isset($request['id_evento_agenda']) or $request['id_evento_agenda'] < 0)
         ) {
             return true;
         }

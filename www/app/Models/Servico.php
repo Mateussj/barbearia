@@ -16,6 +16,7 @@ class Servico extends Model
         'nome',
         'descricao',
         'valor',
-        'tempo'
+        'tempo',
+        'id_perfil'
     ];
 }

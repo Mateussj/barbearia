@@ -80,6 +80,7 @@ class BarbeariaController extends Controller
                 'descricao' => $request['descricao'],
                 'localizacao' => $request['localizacao'],
                 'avatar' => $request['avatar'],
+                'cnpj' => $request['cnpj'],
                 'id_plano_barbearia' => PlanoBarbeariaController::add($request['id_plano_barbearia'])
             ])),
             200

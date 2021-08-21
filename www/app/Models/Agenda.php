@@ -12,7 +12,7 @@ class Agenda extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_barberia',
-        'id_barbeiro'
+        'id_barbearia',
+        'id_perfil'
     ];
 }

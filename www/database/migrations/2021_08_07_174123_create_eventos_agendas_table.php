@@ -17,7 +17,6 @@ class CreateEventosAgendasTable extends Migration
             $table->id();
             $table->bigInteger('id_agenda');
             $table->bigInteger('id_cliente');
-            $table->bigInteger('id_servico_agenda');
             $table->bigInteger('id_avaliacao');
             $table->dateTime('data');
             $table->timestamps();

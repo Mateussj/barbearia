@@ -13,13 +13,14 @@ class CreateServicoAgendaTable extends Migration
      */
 
      /*
-        
+
      */
     public function up()
     {
         Schema::create('servico_agenda', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('id_servico');
+            $table->bigInteger('id_evento_agenda');
             $table->timestamps();
         });
     }
