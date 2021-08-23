@@ -8,19 +8,11 @@ use App\Http\Controllers\PlanoController;
 use App\Http\Controllers\ServicoAgendaController;
 use App\Http\Controllers\ServicoController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\AuthController;
+
 use App\Models\Eventos_agenda;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
-Route::get('barbearia', [BarbeariaController::class, 'get']);
-Route::post('barbearia', [BarbeariaController::class, 'add']);
-Route::delete('barbearia/{id}', [BarbeariaController::class, 'delete']);
-Route::put('barbearia/{id}', [BarbeariaController::class, 'update']);
-
-Route::get('planos', [PlanoController::class, 'get']);
-Route::post('planos', [PlanoController::class, 'add']);
-Route::delete('planos/{id}', [PlanoController::class, 'delete']);
-Route::put('planos/{id}', [PlanoController::class, 'update']);
 
 Route::get('usuario', [UsuarioController::class, 'get']);
 Route::post('usuario', [UsuarioController::class, 'add']);
@@ -46,3 +38,14 @@ Route::get('servico-agenda', [ServicoAgendaController::class, 'get']);
 Route::post('servico-agenda', [ServicoAgendaController::class, 'add']);
 Route::delete('servico-agenda/{id}', [ServicoAgendaController::class, 'delete']);
 Route::put('servico-agenda/{id}', [ServicoAgendaController::class, 'update']);
+
+Route::group([
+
+    'middleware' => 'api'
+
+], function ($router) {
+    Route::post('me', [AuthController::class, 'me']);
+    Route::any('login', [AuthController::class, 'login'])->name('login');
+    Route::post('logout', [AuthController::class, 'logout']);
+    Route::post('refresh', [AuthController::class, 'refresh']);
+});

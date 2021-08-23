@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
@@ -21,7 +21,7 @@ class UsuarioController extends Controller
     public function add(Request $request)
     {
         $request = json_decode($request->getContent(), true);
-
+        $request['password'] = Hash::make($request['password']);
         if ($this->validarDados($request)) {
             return response('Invalid data', 202);
         }
