@@ -20,11 +20,11 @@ class AvaliacaoController extends Controller
     public function add(Request $request)
     {
         $request = json_decode($request->getContent(), true);
-
+/*
         if ($this->validarDados($request)) {
             return response('Invalid data', 202);
         }
-
+*/
         return response(
             json_encode(Avaliacao::create($request)),
             200
